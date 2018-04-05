@@ -48,7 +48,7 @@ AgaveSetupDriver::AgaveSetupDriver(QObject *parent, bool debug) : QObject(parent
     debugMode = debug;
 
     qRegisterMetaType<RequestState>("RequestState");
-    qRegisterMetaType<FileSystemChange>("FileSystemChange");
+    qRegisterMetaType<FileNodeRef>("FileNodeRef");
 }
 
 AgaveSetupDriver::~AgaveSetupDriver()
