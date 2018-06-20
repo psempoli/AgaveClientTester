@@ -114,7 +114,7 @@ HEADERS += \
     remoteModelViews/selectedfilelabel.h \
     remoteModelViews/remotefileitem.h \
     ../AgaveClientInterface/agaveInterfaces/agavethread.h \
-
+    utilFuncs/fixforssl.h
 FORMS += \
     instances/explorerwindow.ui \
     utilFuncs/authform.ui \
