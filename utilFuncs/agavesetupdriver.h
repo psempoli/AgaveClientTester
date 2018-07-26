@@ -83,11 +83,11 @@ public slots:
     void shutdown();
 
 protected:
-    RemoteDataThread * theConnectThread = NULL;
+    RemoteDataThread * theConnectThread = nullptr;
 
-    AuthForm * authWindow = NULL;
-    JobOperator * myJobHandle = NULL;
-    FileOperator * myFileHandle = NULL;
+    AuthForm * authWindow = nullptr;
+    JobOperator * myJobHandle = nullptr;
+    FileOperator * myFileHandle = nullptr;
 
     bool doingShutdown = false;
     bool inDebugMode;
