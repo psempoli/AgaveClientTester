@@ -37,8 +37,6 @@
 #define AGAVESETUPDRIVER_H
 
 #include <QObject>
-#include <QThread>
-#include <QLoggingCategory>
 #include <QApplication>
 
 enum class RequestState;
