@@ -35,12 +35,12 @@
 
 #include "agavesetupdriver.h"
 
-#include "../AgaveExplorer/ae_globals.h"
-#include "../AgaveExplorer/utilFuncs/authform.h"
-#include "../AgaveExplorer/remoteFileOps/fileoperator.h"
-#include "../AgaveExplorer/remoteFileOps/joboperator.h"
+#include "ae_globals.h"
+#include "utilFuncs/authform.h"
+#include "remoteFileOps/fileoperator.h"
+#include "remoteFileOps/joboperator.h"
 
-#include "../AgaveClientInterface/agaveInterfaces/agavehandler.h"
+#include "agaveInterfaces/agavehandler.h"
 
 Q_LOGGING_CATEGORY(agaveAppLayer, "Agave App Layer")
 

@@ -40,10 +40,10 @@
 #include "remoteFileOps/fileoperator.h"
 #include "remoteFileOps/joboperator.h"
 
-#include "../AgaveClientInterface/agaveInterfaces/agavethread.h"
-#include "../AgaveClientInterface/agaveInterfaces/agavetaskreply.h"
+#include "agaveInterfaces/agavethread.h"
+#include "agaveInterfaces/agavetaskreply.h"
 
-#include "../ae_globals.h"
+#include "ae_globals.h"
 
 ExplorerDriver::ExplorerDriver(QObject *parent, bool debug) : AgaveSetupDriver(parent, debug)
 {
