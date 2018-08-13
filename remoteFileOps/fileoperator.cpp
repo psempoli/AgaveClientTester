@@ -91,7 +91,9 @@ FileTreeNode * FileOperator::getFileNodeFromNodeRef(const FileNodeRef &thedata, 
 void FileOperator::enactRootRefresh()
 {
     qCDebug(agaveAppLayer, "Enacting refresh of root.");
-    RemoteDataReply * theReply = ae_globals::get_connection()->remoteLS("/");
+    QString rootFolder = "/";
+    rootFolder = rootFolder.append(ae_globals::get_connection()->getUserName());
+    RemoteDataReply * theReply = ae_globals::get_connection()->remoteLS(rootFolder);
     if (theReply == nullptr)
     {
         //TODO: consider a more fatal error here
