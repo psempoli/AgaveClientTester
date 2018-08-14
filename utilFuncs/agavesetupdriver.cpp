@@ -152,6 +152,8 @@ void AgaveSetupDriver::subWindowHidden(bool nowVisible)
 
 void AgaveSetupDriver::shutdown()
 {
+    //TODO: Check shutdown sequence for race and state conditions. Esp. if program closed during login.
+
     if (doingShutdown) //If shutdown already in progress
     {
         return;
@@ -161,18 +163,16 @@ void AgaveSetupDriver::shutdown()
     if (theConnectThread != nullptr)
     {
         RemoteDataReply * revokeTask = theConnectThread->closeAllConnections();
-        if (revokeTask != nullptr)
-        {
-            QObject::connect(revokeTask, SIGNAL(connectionsClosed(RequestState)), this, SLOT(shutdownCallback()));
-            qCDebug(agaveAppLayer, "Waiting on outstanding tasks");
-            QMessageBox * waitBox = new QMessageBox(); //Note: deliberate memory leak, as program closes right after
-            waitBox->setText("Waiting for network shutdown. Click OK to force quit.");
-            waitBox->setStandardButtons(QMessageBox::Close);
-            waitBox->setDefaultButton(QMessageBox::Close);
-            QObject::connect(waitBox, SIGNAL(buttonClicked(QAbstractButton*)), this, SLOT(shutdownCallback()));
-            waitBox->show();
-            return;
-        }
+
+        QObject::connect(revokeTask, SIGNAL(connectionsClosed(RequestState)), this, SLOT(shutdownCallback()));
+        qCDebug(agaveAppLayer, "Waiting on outstanding tasks");
+        QMessageBox * waitBox = new QMessageBox(); //Note: deliberate memory leak, as program closes right after
+        waitBox->setText("Waiting for network shutdown. Click OK to force quit.");
+        waitBox->setStandardButtons(QMessageBox::Close);
+        waitBox->setDefaultButton(QMessageBox::Close);
+        QObject::connect(waitBox, SIGNAL(buttonClicked(QAbstractButton*)), this, SLOT(shutdownCallback()));
+        waitBox->show();
+        return;
     }
     shutdownCallback();
 }
