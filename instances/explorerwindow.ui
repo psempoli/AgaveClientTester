@@ -249,7 +249,7 @@
   <customwidget>
    <class>RemoteFileTree</class>
    <extends>QTreeView</extends>
-   <header>remoteModelViews/remotefiletree.h</header>
+   <header>remoteFiles/remotefiletree.h</header>
   </customwidget>
   <customwidget>
    <class>HeaderWidget</class>
@@ -271,7 +271,7 @@
   <customwidget>
    <class>SelectedFileLabel</class>
    <extends>QLabel</extends>
-   <header>remoteModelViews/selectedfilelabel.h</header>
+   <header>remoteFiles/selectedfilelabel.h</header>
   </customwidget>
  </customwidgets>
  <resources/>
