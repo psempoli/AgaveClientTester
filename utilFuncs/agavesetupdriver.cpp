@@ -38,7 +38,7 @@
 #include "ae_globals.h"
 #include "utilFuncs/authform.h"
 #include "remoteFiles/fileoperator.h"
-#include "remoteFileOps/joboperator.h"
+#include "remoteJobs/joboperator.h"
 
 #include "agaveInterfaces/agavehandler.h"
 
@@ -131,7 +131,7 @@ void AgaveSetupDriver::getAuthReply(RequestState authReply)
 {
     if ((authReply == RequestState::GOOD) && (authWindow != nullptr) && (authWindow->isVisible()))
     {
-        myJobHandle = new JobOperator(this);
+        myJobHandle = new JobOperator(myDataInterface);
         myFileHandle = new FileOperator(this);
         closeAuthScreen();
     }
@@ -147,18 +147,15 @@ void AgaveSetupDriver::subWindowHidden(bool nowVisible)
 
 void AgaveSetupDriver::shutdown()
 {
+    if (shutdownStarted) return;
+    shutdownStarted = true;
     //TODO: Check shutdown sequence for race and state conditions. Esp. if program closed during login.
 
     if ((myDataInterface == nullptr) || (myDataInterface->getInterfaceState() == RemoteDataInterfaceState::INIT) ||
-            (myDataInterface->getInterfaceState() == RemoteDataInterfaceState::READY))
+            (myDataInterface->getInterfaceState() == RemoteDataInterfaceState::READY) ||
+            (myDataInterface->getInterfaceState() == RemoteDataInterfaceState::DISCONNECTED))
     {
         shutdownCallback();
-        return;
-    }
-
-    if ((myDataInterface->getInterfaceState() == RemoteDataInterfaceState::DISCONNECTING) ||
-            (myDataInterface->getInterfaceState() == RemoteDataInterfaceState::DISCONNECTED))
-    {   //If shutdown already in progress
         return;
     }
 

@@ -91,6 +91,7 @@ protected:
     FileOperator * myFileHandle = nullptr;
 
     static QStringList enabledDebugs;
+    bool shutdownStarted = false;
 };
 
 #endif // AGAVESETUPDRIVER_H

@@ -38,7 +38,7 @@
 #include "explorerwindow.h"
 #include "utilFuncs/authform.h"
 #include "remoteFiles/fileoperator.h"
-#include "remoteFileOps/joboperator.h"
+#include "remoteJobs/joboperator.h"
 
 #include "agaveInterfaces/agavetaskreply.h"
 #include "agaveInterfaces/agavehandler.h"

@@ -43,7 +43,7 @@
 #include "remoteFiles/fileoperator.h"
 #include "remoteFiles/remotefilemodel.h"
 
-#include "remoteFileOps/joboperator.h"
+#include "remoteJobs/joboperator.h"
 
 #include "utilFuncs/singlelinedialog.h"
 
