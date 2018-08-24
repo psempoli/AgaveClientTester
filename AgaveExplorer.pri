@@ -1,4 +1,12 @@
-include($$PWD/../AgaveClientInterface/AgaveClientInterface.pri)
+
+NEEDED_REPO=AgaveClientInterface
+
+NEEDED_PRI=$$PWD/../$$NEEDED_REPO/"$$NEEDED_REPO".pri
+!exists( $$NEEDED_PRI ) {
+    message("Needed Git repo $$NEEDED_REPO not found. This project requires $$NEEDED_REPO from https://github.com/NHERI-SimCenter.")
+}
+
+include($$NEEDED_PRI)
 
 INCLUDEPATH += "$$PWD/"
 
@@ -9,8 +17,8 @@ SOURCES += \
     $$PWD/utilFuncs/singlelinedialog.cpp \
     $$PWD/utilFuncs/fixforssl.cpp \
     $$PWD/ae_globals.cpp \   
-    $$PWD/SimCenterCommon/FooterWidget.cpp \
-    $$PWD/SimCenterCommon/HeaderWidget.cpp
+    $$PWD/commonUI/FooterWidget.cpp \
+    $$PWD/commonUI/HeaderWidget.cpp
 
 HEADERS += \
     $$PWD/utilFuncs/agavesetupdriver.h \
@@ -19,8 +27,8 @@ HEADERS += \
     $$PWD/utilFuncs/singlelinedialog.h \
     $$PWD/utilFuncs/fixforssl.h \
     $$PWD/ae_globals.h \
-    $$PWD/SimCenterCommon/FooterWidget.h \
-    $$PWD/SimCenterCommon/HeaderWidget.h
+    $$PWD/commonUI/FooterWidget.h \
+    $$PWD/commonUI/HeaderWidget.h
 
 FORMS += \
     $$PWD/utilFuncs/authform.ui \
@@ -33,4 +41,4 @@ FORMS += \
 }
 
 RESOURCES += \
-    $$PWD/SimCenterCommon/commonResources.qrc \
+    $$PWD/commonUI/commonResources.qrc \
