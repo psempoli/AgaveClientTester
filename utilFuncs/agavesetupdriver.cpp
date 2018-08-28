@@ -131,7 +131,7 @@ void AgaveSetupDriver::getAuthReply(RequestState authReply)
 {
     if ((authReply == RequestState::GOOD) && (authWindow != nullptr) && (authWindow->isVisible()))
     {
-        myJobHandle = new JobOperator(myDataInterface);
+        myJobHandle = new JobOperator(this);
         myFileHandle = new FileOperator(this);
         closeAuthScreen();
     }
