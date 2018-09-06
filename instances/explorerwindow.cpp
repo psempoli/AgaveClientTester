@@ -68,6 +68,7 @@ ExplorerWindow::ExplorerWindow(QWidget *parent) :
     QObject::connect(ae_globals::get_file_handle(), SIGNAL(fileSystemChange(FileNodeRef)),
                      &theFileModel, SLOT(newFileData(FileNodeRef)), Qt::QueuedConnection);
     ui->remoteFileView->setModelLink(&theFileModel);
+    ui->jobTable->setOperator(ae_globals::get_job_handle());
 
     ui->selectedFileLabel->connectFileTreeWidget(ui->remoteFileView);
     ui->selectedFileInfo->connectFileTreeWidget(ui->remoteFileView);
