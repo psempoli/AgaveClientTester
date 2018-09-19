@@ -92,8 +92,6 @@ private slots:
     void downloadMenuItem();
     void readMenuItem();
     void retriveMenuItem();
-    void compressMenuItem();
-    void decompressMenuItem();
     void refreshMenuItem();
 
     void jobRightClickMenu(QPoint);
