@@ -41,7 +41,6 @@
 
 #include "remoteFiles/filetreenode.h"
 #include "remoteFiles/fileoperator.h"
-#include "remoteFiles/remotefilemodel.h"
 #include "remoteFiles/filerecursiveoperator.h"
 
 #include "remoteJobs/joboperator.h"

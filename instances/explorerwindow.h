@@ -44,7 +44,6 @@
 
 #include "remoteFiles/filenoderef.h"
 #include "remotejobdata.h"
-#include "remoteFiles/remotefilemodel.h"
 
 class RemoteFileTree;
 class FileMetaData;
