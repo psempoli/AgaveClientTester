@@ -180,7 +180,7 @@ void AgaveSetupDriver::shutdown()
 
     qCDebug(agaveAppLayer, "Waiting on outstanding tasks");
     QMessageBox * waitBox = new QMessageBox(); //Note: deliberate memory leak, as program closes right after
-    waitBox->setText("Waiting for network shutdown. Click OK to force quit.");
+    waitBox->setText("Waiting for network shutdown. Click Close to force quit.");
     waitBox->setStandardButtons(QMessageBox::Close);
     waitBox->setDefaultButton(QMessageBox::Close);
     QObject::connect(waitBox, SIGNAL(buttonClicked(QAbstractButton*)), this, SLOT(shutdownCallback()));
