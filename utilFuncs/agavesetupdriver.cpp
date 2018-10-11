@@ -119,6 +119,18 @@ void AgaveSetupDriver::debugCategoryFilter(QLoggingCategory *category)
     category->setEnabled(QtDebugMsg, false);
 }
 
+bool AgaveSetupDriver::sslCheckOkay()
+{
+    if (QSslSocket::supportsSsl()) return true;
+
+    #ifdef Q_OS_WIN
+        ae_globals::displayFatalPopup("The CWE program is unable to locate SSL libraries on your machine. \n\nYou can download OpenSSL at:\nhttps://indy.fulgan.com/SSL\n\nYou can either install openSSL OR, unzip the SSL package and copy the two .dll files (libeay32.dll and ssleay32.dll) to the SimCenter folder.\n\n(Please note: Due to various import and export restrictions, we cannot package cryptographic SSL libraries with the CWE program. Please insure you are abiding by all regulations in your area before downloading these libraries. SimCenter is not in any way affliated with OpenSSL or the aforementioned website.)", "First-Time Setup");
+    #else
+        ae_globals::displayFatalPopup("SSL support was not detected on this computer.\nPlease ensure that some version of SSL is installed,\nNormally, this comes with all Linux and Mac computers, so your OS install may be broken. However, due to bugs in the most recent Ubuntu, (18.04), CWE might not connect with SSL in that version.");
+    #endif
+    return false;
+}
+
 RemoteDataInterface * AgaveSetupDriver::getDataConnection()
 {
     return myDataInterface;

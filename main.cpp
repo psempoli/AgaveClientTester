@@ -40,16 +40,12 @@
 #include "instances/explorerdriver.h"
 #include "remotedatainterface.h"
 #include "ae_globals.h"
-#include "utilFuncs/fixforssl.h"
 
 int main(int argc, char *argv[])
 {
     QApplication mainRunLoop(argc, argv);
 
-    if (!FixForSSL::performSSLcheck())
-    {
-        return mainRunLoop.exec();
-    }
+    if (!ExplorerDriver::sslCheckOkay()) return -1;
 
     bool debugLoggingEnabled = false;
     for (int i = 0; i < argc; i++)

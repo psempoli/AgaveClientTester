@@ -74,6 +74,8 @@ public:
     static void setDebugLogging(bool loggingEnabled);
     static void debugCategoryFilter(QLoggingCategory *category);
 
+    static bool sslCheckOkay();
+
 private slots:
     void getAuthReply(RequestState authReply);
     void subWindowHidden(bool nowVisible);
