@@ -46,7 +46,7 @@ Q_LOGGING_CATEGORY(agaveAppLayer, "Agave App Layer")
 
 QStringList AgaveSetupDriver::enabledDebugs;
 
-AgaveSetupDriver::AgaveSetupDriver(QObject *parent) : QObject(parent)
+AgaveSetupDriver::AgaveSetupDriver(int argc, char *argv[], QObject *parent) : QObject(parent)
 {
     ae_globals::set_Driver(this);
 
@@ -61,6 +61,30 @@ AgaveSetupDriver::AgaveSetupDriver(QObject *parent) : QObject(parent)
     qApp->setQuitOnLastWindowClosed(false);
     //Note: Window closing must link to the shutdown sequence, otherwise the app will not close
     //Note: Might consider a better way of implementing this.
+
+    debugLoggingEnabled = false;
+    offlineMode = false;
+    for (int i = 0; i < argc; i++)
+    {
+        if ((strcmp(argv[i],"enableDebugLogging") == 0) || (strcmp(argv[i],"offlineMode") == 0))
+        {
+            debugLoggingEnabled = true;
+        }
+        if (strcmp(argv[i],"offlineMode") == 0)
+        {
+            offlineMode = true;
+        }
+    }
+    if (offlineMode)
+    {
+        qCDebug(agaveAppLayer, "NOTE: Running CWE client offline.");
+    }
+    else
+    {
+        if (!sslCheckOkay()) exit(-1);
+    }
+    setDebugLogging(debugLoggingEnabled);
+    if (debugLoggingEnabled) qCDebug(agaveAppLayer, "NOTE: Debugging text output is enabled.");
 }
 
 AgaveSetupDriver::~AgaveSetupDriver()

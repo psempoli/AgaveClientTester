@@ -45,19 +45,7 @@ int main(int argc, char *argv[])
 {
     QApplication mainRunLoop(argc, argv);
 
-    if (!ExplorerDriver::sslCheckOkay()) return -1;
-
-    bool debugLoggingEnabled = false;
-    for (int i = 0; i < argc; i++)
-    {
-        if (strcmp(argv[i],"enableDebugLogging") == 0)
-        {
-            debugLoggingEnabled = true;
-        }
-    }
-
-    ExplorerDriver::setDebugLogging(debugLoggingEnabled);
-    ExplorerDriver programDriver(nullptr);
+    ExplorerDriver programDriver(argc, argv, nullptr);
     programDriver.loadStyleFiles();
     programDriver.startup();
 
