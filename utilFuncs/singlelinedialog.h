@@ -65,7 +65,7 @@ public:
 
     /*! \brief This method will return the text the user entered.
      *
-     *  Invoke this method after the SingleLineDialog is shown, and closed, by the show() method.
+     *  Invoke this method after the SingleLineDialog is shown, and closed by the user, by the show() method.
      */
     QString getInputText();
 

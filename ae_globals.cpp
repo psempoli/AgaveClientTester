@@ -83,14 +83,15 @@ bool ae_globals::isValidFolderName(QString folderName)
     return true;
 }
 
-bool ae_globals::isValidLocalFolder(QString folderName)
+bool ae_globals::isExtantLocalFolder(QString folderName)
 {
     if (folderName.isEmpty())
     {
         return false;
     }
-    //TODO: PRS
-    return true;
+    QDir dirCheck(folderName);
+
+    return dirCheck.exists();
 }
 
 bool ae_globals::folderNamesMatch(QString folder1, QString folder2)
@@ -120,6 +121,10 @@ AgaveSetupDriver * ae_globals::get_Driver()
 
 void ae_globals::set_Driver(AgaveSetupDriver * newDriver)
 {
+    if (newDriver == nullptr)
+    {
+        displayFatalPopup("Program Driver object defined as null. Please note the circumstances of this error and report it to the developers.", "Internal Error");
+    }
     if (theDriver != nullptr)
     {
         displayFatalPopup("Program Driver object has multiple definitions. Please note the circumstances of this error and report it to the developers.", "Internal Error");

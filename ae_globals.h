@@ -38,6 +38,7 @@
 
 #include <QMessageBox>
 #include <QLoggingCategory>
+#include <QDir>
 
 Q_DECLARE_LOGGING_CATEGORY(agaveAppLayer)
 
@@ -62,22 +63,51 @@ public:
      *
      *  \param message This is the content of the message displayed in the popup.
      *  \param header This short text appears in the header of the popup. The default is: "Critical Error"
-     *
-     *  After construction, use show() or exec() to display the window.
      */
     [[ noreturn ]] static void displayFatalPopup(QString message, QString header = "Critical Error");
 
+    /*! \brief This will display an informational popup and block the program until the user dismisses it.
+     *
+     *  \param message This is the content of the message displayed in the popup.
+     *  \param header This short text appears in the header of the popup. The default is: "Error"
+     */
     static void displayPopup(QString message, QString header = "Error");
 
+    /*! \brief INCOMPLETE METHOD This method tests if a given string is a valid folder name.
+     *
+     *  Does not test if folder exists, only if its name is legal.
+     *
+     *  \param folderName Will return true if no invalid characters are in this string
+     */
     static bool isValidFolderName(QString folderName);
-    static bool isValidLocalFolder(QString folderName);
+    /*! \brief This method tests if a given string is a valid local folder name.
+     *
+     *  \param folderName Will return true if no this folder exists locally
+     */
+    static bool isExtantLocalFolder(QString folderName);
+    /*! \brief This method tests if two given strings match each other as folder names.
+     *
+     *  This method accounts for potential extra slashes, and only recognizes \ slashes.
+     */
     static bool folderNamesMatch(QString folder1, QString folder2);
 
+    /*! \brief Returns a pointer to the driver object.
+     */
     static AgaveSetupDriver * get_Driver();
+    /*! \brief Sets the driver object for this program.
+     *
+     *  Kills the program if the new driver is a null pointer or if driver is already set.
+     */
     static void set_Driver(AgaveSetupDriver * newDriver);
 
+    /*! \brief Uses driver object to get RemoteDataInterface for this program.
+     */
     static RemoteDataInterface * get_connection();
+    /*! \brief Uses driver object to get JobOperator for this program.
+     */
     static JobOperator * get_job_handle();
+    /*! \brief Uses driver object to get FileOperator for this program.
+     */
     static FileOperator * get_file_handle();
 
 private:    

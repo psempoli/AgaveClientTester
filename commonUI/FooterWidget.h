@@ -41,6 +41,10 @@
 #include <QHBoxLayout>
 #include <QBitmap>
 
+/*! \brief The FooterWidget is variant of SimCenter's standard FooterWidget, for display at the bottom of all program windows.
+ *
+ *  The Footer Widget includes the NSF logo, the SimCenter logo and a reference to the NSF grant number.
+ */
 class FooterWidget : public QFrame
 {
     Q_OBJECT
