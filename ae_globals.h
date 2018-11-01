@@ -33,6 +33,17 @@
 // Contributors:
 // Written by Peter Sempolinski, for the Natural Hazard Modeling Laboratory, director: Ahsan Kareem, at Notre Dame
 
+/*! \mainpage Agave Explorer Summary
+ *
+ * \section intro_sec Executive Summary
+ *
+ *  The SimCenter Agave Explorer is intened to be a framework and example for UI application which access remote resources through and Agave server. In particular, this Agave Explorer accesses the Agave server run by DesignSafe.
+ *
+ * The Agave Explorer framework uses the Remote Interface, File Handler and Job Handler frameworks of the AgaveClientInterface repo. In addition to that, the Agave Explorer provides several untilites, including a controller object for a UI application (AgaveSetupDriver), window widgets for authentication (AuthForm), quick user prompts (SingleLineDialog), display of the copyright information (CopyrightDialog), a static class for commonly used global actions (ae_globals) and common header and footer widgets (FooterWidget and HeaderWidget).
+ *
+ * Using these, the Agave Explorer is a simple UI application which can view and manipulate the remote file system, and create an monitor remote Agave jobs.
+ */
+
 #ifndef AE_GLOBALS_H
 #define AE_GLOBALS_H
 

@@ -87,6 +87,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a href="#pub-slots">Public Slots</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="#pro-static-attribs">Static Protected Attributes</a> &#124;
 <a href="classAgaveSetupDriver-members.html">List of all members</a>  </div>
@@ -94,6 +95,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">AgaveSetupDriver Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>The <a class="el" href="classAgaveSetupDriver.html" title="The AgaveSetupDriver in an astract class for a driver object for certain SimCenter programs that invo...">AgaveSetupDriver</a> in an astract class for a driver object for certain SimCenter programs that invoke Agave.  
+ <a href="classAgaveSetupDriver.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-slots"></a>
 Public Slots</h2></td></tr>
@@ -103,21 +107,18 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>shutdown</b> ()</td><
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aa3be885573f36f776fc839e9e385fb7a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa3be885573f36f776fc839e9e385fb7a"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>AgaveSetupDriver</b> (int argc, char *argv[], QObject *parent=nullptr)</td></tr>
+<tr class="memitem:aa3be885573f36f776fc839e9e385fb7a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgaveSetupDriver.html#aa3be885573f36f776fc839e9e385fb7a">AgaveSetupDriver</a> (int argc, char *argv[], QObject *parent=nullptr)</td></tr>
+<tr class="memdesc:aa3be885573f36f776fc839e9e385fb7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a new <a class="el" href="classAgaveSetupDriver.html" title="The AgaveSetupDriver in an astract class for a driver object for certain SimCenter programs that invo...">AgaveSetupDriver</a> with given command-line parameters.  <a href="#aa3be885573f36f776fc839e9e385fb7a">More...</a><br /></td></tr>
 <tr class="separator:aa3be885573f36f776fc839e9e385fb7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b0ec401708cdfd751f1d59c8cd71860"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1b0ec401708cdfd751f1d59c8cd71860"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>loadStyleFiles</b> ()=0</td></tr>
+<tr class="separator:a1b0ec401708cdfd751f1d59c8cd71860"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9b66a41b86092d7c457bcbd71359baec"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9b66a41b86092d7c457bcbd71359baec"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>startup</b> ()=0</td></tr>
 <tr class="separator:a9b66a41b86092d7c457bcbd71359baec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4ea50883cc27bffbe0245a3b7acb9eb5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4ea50883cc27bffbe0245a3b7acb9eb5"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>createAndStartAgaveThread</b> ()</td></tr>
 <tr class="separator:a4ea50883cc27bffbe0245a3b7acb9eb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a64e20b7da4a707bba28f0b95a40b8901"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a64e20b7da4a707bba28f0b95a40b8901"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>closeAuthScreen</b> ()=0</td></tr>
-<tr class="separator:a64e20b7da4a707bba28f0b95a40b8901"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1b0ec401708cdfd751f1d59c8cd71860"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1b0ec401708cdfd751f1d59c8cd71860"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>loadStyleFiles</b> ()=0</td></tr>
-<tr class="separator:a1b0ec401708cdfd751f1d59c8cd71860"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6743283d502bf3b38e48b338434d5e55"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6743283d502bf3b38e48b338434d5e55"></a>
 RemoteDataInterface *&#160;</td><td class="memItemRight" valign="bottom"><b>getDataConnection</b> ()</td></tr>
 <tr class="separator:a6743283d502bf3b38e48b338434d5e55"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -145,6 +146,12 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>debugCategoryF
 <tr class="memitem:a7f6cb19fc2d3bf024a611f184eceb8b2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7f6cb19fc2d3bf024a611f184eceb8b2"></a>
 static bool&#160;</td><td class="memItemRight" valign="bottom"><b>sslCheckOkay</b> ()</td></tr>
 <tr class="separator:a7f6cb19fc2d3bf024a611f184eceb8b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a64e20b7da4a707bba28f0b95a40b8901"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a64e20b7da4a707bba28f0b95a40b8901"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>closeAuthScreen</b> ()=0</td></tr>
+<tr class="separator:a64e20b7da4a707bba28f0b95a40b8901"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -182,6 +189,62 @@ Static Protected Attributes</h2></td></tr>
 static QStringList&#160;</td><td class="memItemRight" valign="bottom"><b>enabledDebugs</b></td></tr>
 <tr class="separator:ae261a40ded5cebc12924572a80ac545f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>The <a class="el" href="classAgaveSetupDriver.html" title="The AgaveSetupDriver in an astract class for a driver object for certain SimCenter programs that invo...">AgaveSetupDriver</a> in an astract class for a driver object for certain SimCenter programs that invoke Agave. </p>
+<p>Typically, a main() function will entail creating a subclass of this object, running loadStyleFiles(), and then calling startup() before starting the Qt loop.</p>
+<p>The driver is responsible to creating and removing subordinate program objects, most prominantly, the login and main windows. There should be only one driver object for the program. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="aa3be885573f36f776fc839e9e385fb7a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">AgaveSetupDriver::AgaveSetupDriver </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>argc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>argv</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QObject *&#160;</td>
+          <td class="paramname"><em>parent</em> = <code>nullptr</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructs a new <a class="el" href="classAgaveSetupDriver.html" title="The AgaveSetupDriver in an astract class for a driver object for certain SimCenter programs that invo...">AgaveSetupDriver</a> with given command-line parameters. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">argc</td><td>should be the argc from main() </td></tr>
+    <tr><td class="paramname">argv</td><td>should be the argv from main() </td></tr>
+    <tr><td class="paramname">parent</td><td>Typically, the main driver object should not have a parent.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>The constructor for the driver object should be called in main(). There should be only one driver. The driver will register itself with <a class="el" href="classae__globals.html" title="The ae_globals are a set of static methods, intended as global functions for AgaveExplorer programs...">ae_globals</a>. As such, construction of a second driver will crash the program. </p>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

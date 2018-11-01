@@ -42,7 +42,7 @@ namespace Ui {
 class SingleLineDialog;
 }
 
-/*! \brief The CopyrightDialog is a popup window which requests a single line of text data.
+/*! \brief The SingleLineDialog is a popup window which requests a single line of text data.
  *
  *  It is a subclass of QDialog. After construction, the popup should be displayed with show(). This will block until the user replies. After this, the calling function can get the text the user entered with the getInputText() method.
  */
@@ -52,13 +52,13 @@ class SingleLineDialog : public QDialog
     Q_OBJECT
 
 public:
-    /*! \brief The CopyrightDialog will retrive and load the copyright text.
+    /*! \brief The SingleLineDialog will request a single line of text data as user input.
      *
      *  \param textLine A small string of text which will describe to the user what to enter.
      *  \param defaultInput A default input, displayed in the editable text box when the CopyrightDialog appears.
      *  \param parent As a window, this object usually will not have a parent.
      *
-     *  After construction, use show() or exec() to display the window.
+     *  After construction, use show() to display the window.
      */
     explicit SingleLineDialog(QString textLine, QString defaultInput, QWidget *parent = nullptr);
     ~SingleLineDialog();

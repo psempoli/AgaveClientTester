@@ -49,8 +49,19 @@ class FooterWidget : public QFrame
 {
     Q_OBJECT
 public:
+    /*! \brief The FooterWidget is constructed in the manner of a QWidget.
+     *
+     * The easiet way is to use the "promote" functionality of the form editor in the Qt creator.
+     *
+     *  @param parent Typically, the containing window will be the parent
+     */
     explicit FooterWidget(QWidget *parent = nullptr);
     ~FooterWidget();
+
+    /*! \brief Removes the text from the FooterWidget
+     *
+     *  The logo graphics will remain.
+     */
     void condense();
 
 signals:

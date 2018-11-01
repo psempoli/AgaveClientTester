@@ -42,14 +42,34 @@
 #include <QHBoxLayout>
 #include <QLabel>
 
+/*! \brief The HeaderWidget is variant of SimCenter's standard HeaderWidget, for display at the top of all program windows.
+ *
+ *  The HeaderWidget includes capacity for adding other widgets, for display of logged-in user or for a logout button, as needed.
+ */
 class HeaderWidget : public QFrame
 {
     Q_OBJECT
 public:
+    /*! \brief The HeaderWidget is constructed in the manner of a QWidget.
+     *
+     *  The easiet way is to use the "promote" functionality of the form editor in the Qt creator.
+     *
+     *  @param parent Typically, the containing window will be the parent.
+     */
     explicit HeaderWidget(QWidget *parent = nullptr);
     ~HeaderWidget();
 
+    /*! \brief The message displayed in the header can be changed using this method.
+     *
+     *  @param newText will denote the new text displayed in the header
+     */
     void setHeadingText(const QString &newText);
+    /*! \brief On the right side of the header, a set of new widgets can be added.
+     *
+     *  @param newWidget is a pointer to the QWidget to be appended to the header.
+     *
+     *  The added widget will be reparented by the HeaderWidget.
+     */
     void appendWidget(QWidget * newWidget);
 
 signals:

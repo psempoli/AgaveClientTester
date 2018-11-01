@@ -57,21 +57,36 @@ class ExplorerDriver : public AgaveSetupDriver
     Q_OBJECT
 
 public:
-    /*! \brief Constructed a new ExplorerDriver with given command-line parameters.
+    /*! \brief Constructs a new ExplorerDriver with given command-line parameters.
      *
      *  @param argc should be the argc from main()
      *  @param argv should be the argv from main()
-     *  @param parent Typlically, the main driver object should not have a parent.
+     *  @param parent Typically, the main driver object should not have a parent.
      *
-     *  The constructor for the driver object should be called in main(). There should be only one driver.
+     *  The constructor for the driver object should be called in main(). There should be only one driver. The driver will register itself with ae_globals. As such, construction of a second driver will crash the program.
      */
     explicit ExplorerDriver(int argc, char *argv[], QObject *parent = nullptr);
     ~ExplorerDriver();
 
-    virtual void startup();
-    virtual void closeAuthScreen();
-
+    /*! \brief This virtual function will load the QSS style files for the program.
+     *
+     * This function should be called in main, usually before startup().
+     *
+     */
     virtual void loadStyleFiles();
+
+    /*! \brief The startup method is intended for constructing the main subordinate objects of the driver object.
+     *
+     *  These include various objects to communicate with Agave, as well as any needed UI objects.
+     *
+     *  The startup method should be called in main().
+     */
+    virtual void startup();
+
+    /*! \brief After a successful authentication, the
+     *
+     */
+    virtual void closeAuthScreen();
 
     virtual QString getBanner();
     virtual QString getVersion();

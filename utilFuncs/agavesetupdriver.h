@@ -50,18 +50,43 @@ class AuthForm;
 class JobOperator;
 class FileOperator;
 
+/*! \brief The AgaveSetupDriver in an astract class for a driver object for certain SimCenter programs that invoke Agave.
+ *
+ *  Typically, a main() function will entail creating a subclass of this object, running loadStyleFiles(), and then calling startup() before starting the Qt loop.
+ *
+ *  The driver is responsible to creating and removing subordinate program objects, most prominantly, the login and main windows. There should be only one driver object for the program.
+ */
 class AgaveSetupDriver : public QObject
 {
     Q_OBJECT
 public:
+    /*! \brief Constructs a new AgaveSetupDriver with given command-line parameters.
+     *
+     *  @param argc should be the argc from main()
+     *  @param argv should be the argv from main()
+     *  @param parent Typically, the main driver object should not have a parent.
+     *
+     *  The constructor for the driver object should be called in main(). There should be only one driver. The driver will register itself with ae_globals. As such, construction of a second driver will crash the program.
+     */
     explicit AgaveSetupDriver(int argc, char *argv[], QObject *parent = nullptr);
     ~AgaveSetupDriver();
+
+    /*! \brief This virtual function will load the QSS style files for the program.
+     *
+     * This function should be called in main, usually before startup().
+     *
+     */
+    virtual void loadStyleFiles() = 0;
+
+    /*! \brief This virtual function will load the QSS style files for the program.
+     *
+     * This function should be called in main, usually before startup().
+     *
+     */
     virtual void startup() = 0;
     void createAndStartAgaveThread();
 
-    virtual void closeAuthScreen() = 0;
 
-    virtual void loadStyleFiles() = 0;
 
     RemoteDataInterface *getDataConnection();
     JobOperator * getJobHandler();
@@ -85,6 +110,8 @@ public slots:
     void shutdown();
 
 protected:
+    virtual void closeAuthScreen() = 0;
+
     QNetworkAccessManager * theNetManager = nullptr;
     QThread * remoteInterfacesThread = nullptr;
 
